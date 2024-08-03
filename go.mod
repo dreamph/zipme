@@ -4,12 +4,13 @@ go 1.22
 
 require (
 	fyne.io/fyne/v2 v2.5.0
-	github.com/alexmullins/zip v0.0.0-20180717182244-4affb64b04d0
+	github.com/dreamph/gozip v0.0.0-20240802051236-e67c3596f1a7
 )
 
 require (
 	fyne.io/systray v1.11.0 // indirect
 	github.com/BurntSushi/toml v1.4.0 // indirect
+	github.com/alexmullins/zip v0.0.0-20180717182244-4affb64b04d0 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/fredbi/uri v1.1.0 // indirect
 	github.com/fsnotify/fsnotify v1.7.0 // indirect

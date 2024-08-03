@@ -8,6 +8,7 @@ import (
 	"fyne.io/fyne/v2/dialog"
 	"fyne.io/fyne/v2/theme"
 	"fyne.io/fyne/v2/widget"
+	"github.com/dreamph/gozip"
 	"log"
 )
 
@@ -45,7 +46,7 @@ type Items struct {
 	Type int
 }
 
-func main() {
+func run() {
 	a := app.New()
 	w := a.NewWindow("Zip Pro X")
 
@@ -179,9 +180,21 @@ func runZipFiles(zipFilePath string, items []Items, password string) error {
 		list = append(list, item.Path)
 	}
 
-	err := zipFiles(zipFilePath, list, password)
-	if err != nil {
-		return err
+	if password != "" {
+		err := gozip.Zip(zipFilePath, list, password)
+		if err != nil {
+			return err
+		}
+	} else {
+		err := gozip.Zip(zipFilePath, list)
+		if err != nil {
+			return err
+		}
 	}
+
 	return nil
+}
+
+func main() {
+	run()
 }
